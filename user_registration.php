@@ -20,7 +20,7 @@ $message = '';
 $success = '';
 
 if(isset($_POST["register_button"]))
-{
+
 	$formdata = array();
 
 	if(empty($_POST["user_email_address"]))
@@ -66,63 +66,63 @@ if(isset($_POST["register_button"]))
 		$formdata['user_address'] = trim($_POST['user_address']);
 	}
 
-	if(empty($_POST['user_contact_no']))
-	{
-		$message .= '<li>User Contact Number Detail is required</li>';
-	}
-	else
-	{
-		$formdata['user_contact_no'] = trim($_POST['user_contact_no']);
-	}
+	// if(empty($_POST['user_contact_no']))
+	// {
+	// 	$message .= '<li>User Contact Number Detail is required</li>';
+	// }
+	// else
+	// {
+	// 	$formdata['user_contact_no'] = trim($_POST['user_contact_no']);
+	// }
 
 	if(!empty($_FILES['user_profile']['name']))
 	{
 		$img_name = $_FILES['user_profile']['name'];
 		$img_type = $_FILES['user_profile']['type'];
 		$tmp_name = $_FILES['user_profile']['tmp_name'];
-		$fileinfo = @getimagesize($tmp_name);
-		$width = $fileinfo[0];
-		$height = $fileinfo[1];
+		// $fileinfo = @getimagesize($tmp_name);
+		// $width = $fileinfo[0];
+		// $height = $fileinfo[1];
 
-		$image_size = $_FILES['user_profile']['size'];
+		// $image_size = $_FILES['user_profile']['size'];
 
-		$img_explode = explode(".", $img_name);
+		// $img_explode = explode(".", $img_name);
 
-		$img_ext = strtolower(end($img_explode));
+		// $img_ext = strtolower(end($img_explode));
 
-		$extensions = ["jpeg", "png", "jpg"];
+		// $extensions = ["jpeg", "png", "jpg"];
 
-		if(in_array($img_ext, $extensions))
-		{
-			if($image_size <= 2000000)
-			{
-				if($width == '225' && $height == '225')
-				{
-					$new_img_name = time() . '-' . rand() . '.' . $img_ext;
-					if(move_uploaded_file($tmp_name, "upload/".$new_img_name))
-					{
-						$formdata['user_profile'] = $new_img_name;
-					}
-				}
-				else
-				{
-					$message .= '<li>Image dimension should be within 225 X 225</li>';
-				}
-			}
-			else
-			{
-				$message .= '<li>Image size exceeds 2MB</li>';
-			}
-		}
-		else
-		{
-			$message .= '<li>Invalid Image File</li>';
-		}
-	}
-	else
-	{
-		$message .= '<li>Please Select Profile Image</li>';
-	}
+	// 	if(in_array($img_ext, $extensions))
+	// 	{
+	// 		if($image_size <= 2000000)
+	// 		{
+	// 			if($width == '225' && $height == '225')
+	// 			{
+	// 				$new_img_name = time() . '-' . rand() . '.' . $img_ext;
+	// 				if(move_uploaded_file($tmp_name, "upload/".$new_img_name))
+	// 				{
+	// 					$formdata['user_profile'] = $new_img_name;
+	// 				}
+	// 			}
+	// 			else
+	// 			{
+	// 				$message .= '<li>Image dimension should be within 225 X 225</li>';
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			$message .= '<li>Image size exceeds 2MB</li>';
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		$message .= '<li>Invalid Image File</li>';
+	// 	}
+	// }
+	// else
+	// {
+	// 	$message .= '<li>Please Select Profile Image</li>';
+	// }
 
 	if($message == '')
 	{
@@ -200,7 +200,7 @@ if(isset($_POST["register_button"]))
 			$mail->Subject = 'Registration Verification for Library Management System';
 
 			$mail->Body = '
-			 <p>Thank you for registering for Library Management System Demo & your Unique ID is <b>'.$user_unique_id.'</b> which will be used for issue book.</p>
+			 <p>Thank you for registering for Inventory Management System Demo & your Unique ID is <b>'.$user_unique_id.'</b> which will be used for issue book.</p>
 
                 <p>This is a verification email, please click the link to verify your email address.</p>
                 <p><a href="'.base_url().'verify.php?code='.$user_verificaton_code.'">Click to Verify</a></p>
@@ -251,20 +251,20 @@ include 'header.php';
 						<label class="form-label">User Name</label>
                         <input type="text" name="user_name" class="form-control" id="user_name" value="" />
                     </div>
-					<div class="mb-3">
+					<!-- <div class="mb-3">
 						<label class="form-label">User Contact No.</label>
 						<input type="text" name="user_contact_no" id="user_contact_no" class="form-control" />
-					</div>
+					</div> -->
 					<div class="mb-3">
 						<label class="form-label">User Address</label>
 						<textarea name="user_address" id="user_address" class="form-control"></textarea>
 					</div>
-					<div class="mb-3">
+					<!-- <div class="mb-3">
 						<label class="form-label">User Photo</label><br />
 						<input type="file" name="user_profile" id="user_profile" />
 						<br />
 						<span class="text-muted">Only .jpg & .png image allowed. Image size must be 225 x 225</span>
-					</div>
+					</div> -->
 					<div class="text-center mt-4 mb-2">
 						<input type="submit" name="register_button" class="btn btn-primary" value="Register" />
 					</div>

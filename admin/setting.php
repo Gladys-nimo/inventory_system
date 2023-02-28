@@ -77,7 +77,7 @@ include '../header.php';
 	?>
 	<div class="card mb-4">
 		<div class="card-header">
-			<i class="fas fa-user-edit"></i> Library Setting
+			<i class="fas fa-user-edit"></i>inventory Setting
 		</div>
 		<div class="card-body">
 
@@ -89,7 +89,7 @@ include '../header.php';
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mb-3">
-							<label class="form-label">Library Name</label>
+							<label class="form-label">Item Name</label>
 							<input type="text" name="library_name" id="library_name" class="form-control" value="<?php echo $row['library_name']; ?>" />
 						</div>
 					</div>
@@ -130,40 +130,24 @@ include '../header.php';
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Currency</label>
-							<select name="library_currency" id="library_currency" class="form-control">
-								<?php echo Currency_list(); ?>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="mb-3">
-							<label class="form-label">Timezone</label>
-							<select name="library_timezone" id="library_timezone" class="form-control">
-								<?php echo Timezone_list(); ?>
-							</select>
-						</div>
-					</div>
+				
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<label class="form-label">Per User Book Issue Limit</label>
+						<label class="form-label">Per User item Issue Limit</label>
 						<input type="number" name="library_issue_total_book_per_user" id="library_issue_total_book_per_user" class="form-control" value="<?php echo $row['library_issue_total_book_per_user']; ?>" />
 					</div>
 				</div>
 				<div class="mt-4 mb-0">
 					<input type="submit" name="edit_setting" class="btn btn-primary" value="Save" />
 				</div>
-				<script type="text/javascript">
+				<!-- <script type="text/javascript">
 
 				document.getElementById('library_currency').value = "<?php echo $row['library_currency']; ?>";
 
 				document.getElementById('library_timezone').value="<?php echo $row['library_timezone']; ?>"; 
 
-				</script>
+				</script> -->
 				<?php 
 				}
 				?>

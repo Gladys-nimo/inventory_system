@@ -57,7 +57,7 @@ if(isset($_POST["login_button"]))
 
 		$statement->execute($data);
 
-		if($statement->rowCount() > 0)
+		if($statement->rowCount() > 1)
 		{
 			foreach($statement->fetchAll() as $row)
 			{
