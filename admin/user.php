@@ -103,7 +103,7 @@ include '../header.php';
     			</thead>
     			<tfoot>
     				<tr>
-    					<th>Image</th>
+    					
                         <th>User Unique ID</th>
                         <th>User Name</th>
                         <th>Email Address</th>
@@ -134,13 +134,11 @@ include '../header.php';
     					}
     					echo '
     					<tr>
-    						<td><img src="../upload/'.$row["user_profile"].'" class="img-thumbnail" width="75" /></td>
+    						
     						<td>'.$row["user_unique_id"].'</td>
     						<td>'.$row["user_name"].'</td>
     						<td>'.$row["user_email_address"].'</td>
     						<td>'.$row["user_password"].'</td>
-    						<td>'.$row["user_contact_no"].'</td>
-    						<td>'.$row["user_address"].'</td>
     						<td>'.$row["user_verification_status"].'</td>
     						<td>'.$user_status.'</td>
     						<td>'.$row["user_created_on"].'</td>

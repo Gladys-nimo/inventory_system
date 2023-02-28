@@ -27,12 +27,12 @@ include 'header.php';
 
 ?>
 <div class="container-fluid py-4" style="min-height: 700px;">
-	<h1>Issue Book Detail</h1>
+	<h1>Issue Item Detail</h1>
 	<div class="card mb-4">
 		<div class="card-header">
 			<div class="row">
 				<div class="col col-md-6">
-					<i class="fas fa-table me-1"></i> Issue Book Detail
+					<i class="fas fa-table me-1"></i> Issue item Detail
 				</div>
 				<div class="col col-md-6" align="right">
 				</div>
@@ -42,15 +42,14 @@ include 'header.php';
 			<table id="datatablesSimple">
 				<thead>
 					<tr>
-						<th>Book ISBN No.</th>
-						<th>Book Name</th>
+					
+						<th>Item Name</th>
 						<th>Issue Date</th>
 						<th>Return Date</th>
-						<th>Fines</th>
 						<th>Status</th>
 					</tr>
 				</thead>
-				<tfoot>
+				<!-- <tfoot>
 					<tr>
 						<th>Book ISBN No.</th>
 						<th>Book Name</th>
@@ -59,14 +58,14 @@ include 'header.php';
 						<th>Fines</th>
 						<th>Status</th>
 					</tr>
-				</tfoot>
+				</tfoot> -->
 				<tbody>
 				<?php 
 				if($statement->rowCount() > 0)
 				{
 					foreach($statement->fetchAll() as $row)
 					{
-						$status = $row["book_issue_status"];
+						$status = $row["itme_issue_status"];
 						if($status == 'Issue')
 						{
 							$status = '<span class="badge bg-warning">Issue</span>';
@@ -84,8 +83,8 @@ include 'header.php';
 
 						echo '
 						<tr>
-							<td>'.$row["book_isbn_number"].'</td>
-							<td>'.$row["book_name"].'</td>
+							
+							<td>'.$row["item_name"].'</td>
 							<td>'.$row["issue_date_time"].'</td>
 							<td>'.$row["return_date_time"].'</td>
 							<td>'.$status.'</td>
